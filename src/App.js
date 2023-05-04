@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useState } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Menu from './Components/Menu'
+import { authPath, tablePath, teacherPath } from './constants/path'
+import { TableContext } from './Context/TableContext'
 
 function App() {
+  const [isAuth, setIsAuth] = useState(true)
+  const [currentTable, setCurrentTable] = useState(null)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <TableContext.Provider value={[currentTable, setCurrentTable]}>
+      {isAuth && (
+        <Menu
+          setIsAuth={setIsAuth}
+          currentTable={currentTable}
+          setCurrentTable={setCurrentTable}
+        />
+      )}
+      <Routes>
+        {isAuth &&
+          Object.values(tablePath).map((value) => (
+            <Route key={value.path} path={value.path} element={value.element} />
+          ))}
+        {isAuth &&
+          Object.values(teacherPath).map((value) => (
+            <Route key={value.path} path={value.path} element={value.element} />
+          ))}
+        {!isAuth &&
+          Object.values(authPath).map((value) => (
+            <Route key={value.path} path={value.path} element={value.element} />
+          ))}
+
+        {isAuth ? (
+          <Route path="*" element={<Navigate to={'/shedule'} />} />
+        ) : (
+          <Route path="*" element={<Navigate to={'/auth'} />} />
+        )}
+      </Routes>
+    </TableContext.Provider>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,47 @@
+.date_panel {
+  width: max-content;
+  margin: 0 auto;
+  border: 1px solid #333;
+  display: flex;
+}
+
+.picker {
+  border: 1px solid #333;
+  margin: -1px;
+  margin-right: 0;
+
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex: 1 1 33%;
+  position: relative;
+}
+.picker:last-child {
+  margin-right: -1px;
+}
+.picker_menu {
+  border: 1px solid #333;
+  padding: 2px 15px;
+  margin: -1px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arrow {
+  font-size: 12px;
+  margin-left: 4px;
+}
+.picker_list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, 100%);
+  width: 100%;
+
+  border: 1px solid #000;
+  padding: 0 12px;
+
+  max-height: 100px;
+  overflow-y: auto;
+}
