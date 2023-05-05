@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  border: 1px solid #333;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+tr.hover:hover {
+  background-color: rgb(23, 190, 23, 0.15);
+  cursor: pointer;
+}
+tr.header {
+  background-color: inherit;
+  cursor: auto;
+}
+th,
+td {
+  border: 1px solid #333;
+  padding: 5px;
+  text-align: center;
+}
+th {
+  font-size: 22px;
+}

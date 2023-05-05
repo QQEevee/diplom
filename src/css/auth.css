@@ -1,0 +1,37 @@
+.auth_window {
+  padding: 50px 70px;
+  margin: 0 auto;
+  align-self: center;
+  border: 1px solid #007bc6;
+  border-radius: 10px;
+}
+.auth_header {
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.auth_window input {
+  border: 1px solid #000;
+  width: 300px;
+}
+
+.auth_window .subheader,
+input {
+  font-size: 18px;
+}
+
+.auth_window .subheader {
+  margin: 15px 0 5px 0;
+}
+
+.auth_window .auth_button {
+  margin-top: 40px;
+  border: 1px solid #007bc6;
+  color: #007bc6;
+}
+.auth_window .auth_button:hover {
+  color: #fff;
+  background-color: #007bc6;
+}
